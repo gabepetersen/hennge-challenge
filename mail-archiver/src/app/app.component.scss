@@ -1,4 +1,7 @@
 @import '../styles.scss';
+#mail-archiver-container {
+  padding: 10%;
+}
 #calender-picker {
   width: 70%;
   height: auto;
@@ -17,8 +20,7 @@
   & > button {
     height: auto;
     width: 100%;
-    max-width: 100px;
-    max-height: 100px;
+    max-width: 70px;
     padding: 0;
     background-color: theme-color('background', 'header');
     border-top-left-radius: 0;
@@ -32,6 +34,10 @@
   border-top: 1px solid #333333;
   border-bottom: 1px solid #333333;
   transition: all 0.15s ease-in-out;
+}
+#search-button {
+  width: 30%;
+  height: auto;
 }
 .show {
   max-width: 400px;

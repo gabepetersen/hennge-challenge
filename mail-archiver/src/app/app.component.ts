@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import {FormGroup, FormControl} from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
+import emailData from '../data/emailData.json';
 
 
 @Component({
@@ -9,6 +10,9 @@ import {FormGroup, FormControl} from '@angular/forms';
 })
   
 export class AppComponent {
+  constructor() {
+    console.log(emailData)
+  }
   title = 'mail-archiver';
   searchToggle: boolean = false;
   range = new FormGroup({

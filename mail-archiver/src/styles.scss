@@ -44,10 +44,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     border-top: 0;
   }
   .mat-form-field-flex {
-    padding: .75em .75em .75em .75em !important;
+    padding: .25em .25em .25em .25em !important;
   }
   .mat-form-field-wrapper {
     padding: 0;
+  }
+  .mat-icon-button {
+    line-height: 0 !important;
   }
 }
 
