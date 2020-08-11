@@ -1,1 +1,81 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$mail-archiver-primary: mat-palette($mat-indigo);
+$mail-archiver-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$mail-archiver-warn: mat-palette($mat-red);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$mail-archiver-theme: mat-light-theme((
+  color: (
+    primary: $mail-archiver-primary,
+    accent: $mail-archiver-accent,
+    warn: $mail-archiver-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($mail-archiver-theme);
+
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Edits to Existing Angular Material Styles */
+::ng-deep { 
+  .mat-form-field-infix {
+    border-top: 0;
+  }
+  .mat-form-field-flex {
+    padding: .75em .75em .75em .75em !important;
+  }
+  .mat-form-field-wrapper {
+    padding: 0;
+  }
+}
+
+/* Styling Time-Savers */
+$icons: arrow01, arrow02, calender, clip, mail_sp, search;
+
+// creates background images for each icon
+@each $icon in $icons {
+  .icon-#{$icon} {
+    background-image: url('assets/img/icon_#{$icon}.svg');
+  }
+}
+
+// creates a central color scheme for the app
+$web-colors: (
+  'text': (
+    'default': #333333,
+    'sub-heading': #666666,
+    'bold': #111111,
+    'link': #3400e0
+  ),
+  'background': (
+    'default': #ffffff,
+    'header': #f5f5f5,
+    'email': #f6f8fa
+  )
+);
+@function theme-color($key: 'text', $variant: 'default') {
+  $map: map-get($web-colors, $key);
+  @return map-get($map, $variant);
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "from": "aaa@example.com",
+    "to": "zzz.zzz@example.com",
+    "subject": "[ HR-888 ] Notice of official announcement",
+    "msg": "This is a big announcement. Read carefully: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ex eros, condimentum vel felis et, lacinia dignissim ligula. Duis sollicitudin eget nunc quis lobortis. Maecenas sed imperdiet orci, eu blandit magna. In hac habitasse platea dictumst. ",
+    "date": "January 3 2020 0:20"
+  },
+  {
+    "from": "bbb.bbbb@example.com",
+    "to": "yyy@example.com",
+    "subject": "[web:333] \"Web Contact\"",
+    "msg": "This is a web contact.",
+    "date": "January 3 2020 0:10"
+  },
+  {
+    "from": "ccc@example.com",
+    "to": "xxx@example.com",
+    "subject": "Happy New Year! Greetings for the New Year.",
+    "msg": "Hello xxx, I hope you have a great 2020! Best, -ccc",
+    "date": "January 3 2020 0:00"
+  },
+  {
+    "from": "ddd.dddd@example.com",
+    "to": "vvv.vvv@example.com",
+    "subject": "[HR-887(Revised: Office Expansion Project Team)] Notice of office expansion.",
+    "msg": "The office is scheduled to expand on February 4th. You will be notified if you have to change stations on January 25th. Thank you for your cooperation.",
+    "date": "January 1 2020 11:33"
+  },
+  {
+    "from": "eee@example.com",
+    "to": "sss@example.com",
+    "subject": "[Github] Logout page",
+    "msg": "Let's refresh the app once the user logs out.",
+    "date": "January 1 2020 11:32"
+  },
+  {
+    "from": "fff.ffff@example.com",
+    "to": "qqq.qqq@example.com",
+    "subject": "[dev]Postfix 3.1.12 / 3.2.9 / 3.3.4 / 3.4.5",
+    "msg": "",
+    "date": "January 1 2020 9:00"
+  },
+  {
+    "from": "ggg@example.com",
+    "to": "ppp@example.com",
+    "subject": "Re: [Github] Brush-up on loading animation",
+    "msg": "Take a look at this loading animation, let's compare it this afternoon to other methods.",
+    "date": "January 1 2020 6:25"
+  },
+  {
+    "from": "hhh.hhh@example.com",
+    "to": "ooo.ooo@example.com",
+    "subject": "Workplace Summary for sample, Inc.: Jun 2 - Jun 9",
+    "msg": "Hello ooo, attached is the summary for our workplace for June 2-9 of 2019. This includes everything we did and how we did it. Best Regards, -hhh.",
+    "date": "January 1 2020 5:12"
+  },
+  {
+    "from": "iii.example.com",
+    "to": "nnn@example.com",
+    "subject": "I love you",
+    "msg": "Hello secret lover, lets go get drinks tonight. Attached is my number. xoxo -iii",
+    "date": "December 12 2019 13:34"
+  },
+  {
+    "from": "Pablo-Diego-José-Francisco@example.com",
+    "to": "Pablo-Diego-José-Francisco@example.com",
+    "subject": "[info:888] ABC EQUIPMENT COMPANY",
+    "msg": "Reminder to myself: pick up this item at ABC after work.",
+    "date": "December 12 2019 13:00"
+  }
+]

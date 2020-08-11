@@ -1,0 +1,43 @@
+@import '../styles.scss';
+#calender-picker {
+  width: 70%;
+  height: auto;
+}
+#calender-bar {
+  border-top: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #333333;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 10px;
+}
+#header-bar {
+  display: flex;
+  & > button {
+    height: auto;
+    width: 100%;
+    max-width: 100px;
+    max-height: 100px;
+    padding: 0;
+    background-color: theme-color('background', 'header');
+    border-top-left-radius: 0;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 0;
+    border: 1px solid #333333;
+  }
+}
+#search-bar {
+  border-top: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  transition: all 0.15s ease-in-out;
+}
+.show {
+  max-width: 400px;
+  border-left: 1px solid #333333;
+}
+.hide { 
+  max-width: 0;
+  border-left: 0;
+}
