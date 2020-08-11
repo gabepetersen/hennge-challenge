@@ -1,3 +1,4 @@
+<!-- Main Content -->
 <div id="mail-archiver-container">
   <!-- Date Picker -->
   <div id="header-bar">
@@ -13,16 +14,39 @@
       <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
       <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
     </mat-form-field>
-    <!--Search Bar -->
+    <!-- Search Bar -->
     <mat-form-field [ngClass]="searchToggle ? 'show' : 'hide'" id="search-bar" floatLabel="never" appearance="none">
-      <mat-label>Search</mat-label>
-      <input matInput>
+      <!--<mat-label></mat-label>-->
+      <input matInput placeholder="Search">
     </mat-form-field>
     <button mat-flat-button (click)="toggleSearchBar()"><img id="search-button" src="../assets/img/icon_search.svg"/></button>
   </div>
 
-  <mat-list role="list">
-    <mat-list-item role="listitem">Item 1</mat-list-item>
+  <!-- Email List -->
+  <mat-divider></mat-divider>
+  <mat-list *ngIf="dataSource" id="header" role="list">
+    <mat-list-item role="listitem">
+      <div class="email-header-container">
+        <div class="email-from-address"><p>From</p></div>
+        <div class="email-to-address"><p>To</p></div>
+        <div class="email-subject"><p>Subject</p></div>
+        <div class="email-date"><p>Date</p></div>
+      </div>
+      </mat-list-item>
     <mat-divider></mat-divider>
   </mat-list>
+  <mat-list role="list" *ngFor="let data of dataSource">
+    <mat-list-item role="listitem">
+      <div class="email-container">
+        <div class="email-image"><img src="../assets/img/icon_mail_sp.svg"/></div>
+        <div class="email-from-address"><p>{{data.from}}</p></div>
+        <div class="email-to-address"><p>{{data.to}}</p></div>
+        <div class="email-subject"><p>{{data.subject}}</p></div>
+        <div class="email-date"><p>{{data.date}}</p></div>
+      </div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+  </mat-list>
+
+<!-- End Container -->
 </div>

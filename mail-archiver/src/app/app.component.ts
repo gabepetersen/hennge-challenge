@@ -10,11 +10,14 @@ import emailData from '../data/emailData.json';
 })
   
 export class AppComponent {
-  constructor() {
-    console.log(emailData)
-  }
   title = 'mail-archiver';
+  public dataSource: any;
+
+  constructor() {
+    this.dataSource = emailData;
+  }
   searchToggle: boolean = false;
+  
   range = new FormGroup({
     start: new FormControl(),
     end: new FormControl()
