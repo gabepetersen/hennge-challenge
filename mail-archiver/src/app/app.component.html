@@ -17,15 +17,16 @@
     <!-- Search Bar -->
     <mat-form-field [ngClass]="searchToggle ? 'show' : 'hide'" id="search-bar" floatLabel="never" appearance="none">
       <!--<mat-label></mat-label>-->
-      <input matInput placeholder="Search">
+      <input matInput placeholder="Search" [formControl]="textFilter">
     </mat-form-field>
     <button mat-flat-button (click)="toggleSearchBar()"><img id="search-button" src="../assets/img/icon_search.svg"/></button>
   </div>
 
   <!-- Email List -->
-  <mat-divider></mat-divider>
-  <mat-list *ngIf="dataSource" id="header" role="list">
-    <mat-list-item role="listitem">
+
+  <mat-list role="list" >
+    <mat-divider></mat-divider>
+    <mat-list-item *ngIf="dataSource"  id="email-list-header" role="listitem">
       <div class="email-header-container">
         <div class="email-from-address"><p>From</p></div>
         <div class="email-to-address"><p>To</p></div>
@@ -34,15 +35,16 @@
       </div>
       </mat-list-item>
     <mat-divider></mat-divider>
-  </mat-list>
-  <mat-list role="list" *ngFor="let data of dataSource">
-    <mat-list-item role="listitem">
+    <mat-list-item *ngFor="let data of dataSource" id="email-list-item" role="listitem">
       <div class="email-container">
         <div class="email-image"><img src="../assets/img/icon_mail_sp.svg"/></div>
         <div class="email-from-address"><p>{{data.from}}</p></div>
         <div class="email-to-address"><p>{{data.to}}</p></div>
+        <div class="email-reply-count"><p *ngIf="data.reply">{{data.reply.length}}</p></div>
         <div class="email-subject"><p>{{data.subject}}</p></div>
-        <div class="email-date"><p>{{data.date}}</p></div>
+        <div class="email-attachment"><img *ngIf="data.attachment" src="../assets/img/icon_clip.svg"></div>
+        <!-- Date Pipe -->
+        <div class="email-date"><p>{{data.date | customDate}}</p></div>
       </div>
     </mat-list-item>
     <mat-divider></mat-divider>

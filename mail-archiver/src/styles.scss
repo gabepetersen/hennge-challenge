@@ -52,6 +52,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   .mat-icon-button {
     line-height: 0 !important;
   }
+  .mat-body p, .mat-body-1 p, .mat-typography p {
+    margin: 0;
+  }
 }
 
 /* Styling Time-Savers */

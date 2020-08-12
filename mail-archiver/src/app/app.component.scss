@@ -50,8 +50,14 @@
 /* ----------------------------- */
 /* ------ Email Container ------ */
 /* ----------------------------- */
-#header {
+#email-list-header {
   background-color: theme-color('background', 'header');
+}
+#email-list-item {
+  &:hover {
+    color: theme-color('text', 'link');
+    background-color: theme-color('background', 'email');
+  }
 }
 .email-header-container {
   @extend .email-container;
@@ -70,10 +76,10 @@
   display: grid;
   align-items: center;
   justify-items: start;
-  grid-template-columns: minmax(0,2fr) minmax(0,3fr) minmax(0,5fr) minmax(0,2fr);
+  grid-template-columns: minmax(0,2fr) minmax(0,2fr) minmax(0,1fr) minmax(0,5fr) minmax(0,1fr) minmax(0,2fr);
   grid-template-rows: auto;
   grid-template-areas: 
-    "from-address to-address subject date";
+    "from-address to-address reply-count subject attach date";
 }
 .email-image {
   display: none;
@@ -84,6 +90,18 @@
 }
 .email-to-address {
   grid-area: to-address;
+}
+.email-reply-count {
+  grid-area: reply-count;
+  justify-self: center;
+}
+.email-attachment {
+  grid-area: attach;
+  justify-self: center;
+  text-align: center;
+  & img {
+    width: 25%;
+  }
 }
 .email-subject {
   grid-area: subject;
