@@ -25,6 +25,7 @@ export class AppComponent {
   });
 
   constructor() {
+    // search bar form control
     this.textFilter = new FormControl();
     this.dataSource = emailData;
     this.filteredData = this.dataSource;
@@ -35,12 +36,13 @@ export class AppComponent {
       email.date = new Date(email.date).getTime();
     });
     // automatically set the sorting based on date
-    this.sortOrder = 'asc';
+    this.sortOrder = 'desc';
     this.resetSort('date');
   }
 
-  get firstDate() { return this.range.get('startDateTime').value; }
-  get secondDate() { return this.range.get('endDateTime').value; }
+  // date form controls
+  get firstDate() { return this.range.get('start').value; }
+  get secondDate() { return this.range.get('end').value; }
 
   toggleSearchBar() {
     this.searchToggle = !this.searchToggle;
@@ -54,20 +56,38 @@ export class AppComponent {
    * Filters based on current search date filters and stores it in this.filteredData
    */
   public filterString() {
-    let firstDateTime = this.firstDate ? new Date(new Date(this.firstDate).setHours(0, 0, 0, 0)).getTime() : '';
-    let secondDateTime = this.secondDate ? new Date(new Date(this.secondDate).setHours(23, 59, 59, 59)).getTime() : '';
-    let textFilterValue = this.textFilter.value ? this.textFilter.value.trim().toLowerCase() : '';
+    console.log(this.firstDate);
+    console.log(this.secondDate);
+
+    let firstDateTime = this.firstDate ? new Date(new Date(this.firstDate).setHours(0, 0, 0, 0)).getTime() : null;
+    let secondDateTime = this.secondDate ? new Date(new Date(this.secondDate).setHours(23, 59, 59, 59)).getTime() : null;
+    let textFilterValue = this.textFilter.value ? this.textFilter.value.trim().toLowerCase() : null;
     
     var filterCopy = this.dataSource;
     this.filteredData = filterCopy.filter((email) => {
-      // if the date filter is valid and the email date falls within the date range
-      if ( (email.date < firstDateTime) || (email.date > secondDateTime) ) {
-        return false;
-      } else {
-        if (textFilterValue != '') {
-          // return all the values under all of the keys in each email that include the search string (textFilterValue)
-          return (Object.values(email).join(' ').toLowerCase().indexOf(textFilterValue) !== -1);
+      var dateCond = false;
+      // ---- Examine Date Filter Condition ----
+      if (firstDateTime && secondDateTime) {
+        if ((email.date > firstDateTime) && (email.date < secondDateTime)) {
+          dateCond = true;
         }
+      } else if (firstDateTime) {
+        if (email.date > firstDateTime) {
+          dateCond = true;
+        }
+      } else if (secondDateTime) {
+        if (email.date < secondDateTime) {
+          dateCond = true;
+        }  
+      } else {
+        dateCond = true;
+      }
+      // ---- Examine Search Filter Condition ----
+      if ( textFilterValue ) {
+        // return all the values under all of the keys in each email that include the search string (textFilterValue)
+        return (Object.values(email).join(' ').toLowerCase().indexOf(textFilterValue) !== -1) && dateCond;
+      } else {
+        return dateCond;
       }
     });
   }
@@ -76,19 +96,23 @@ export class AppComponent {
    * Toggles the sort of the data based on a header
    */
   public toggleSort(key: string) {
-    let sortedFilteredData;
-    // clear array first
-    this.sortToggleCheck.forEach((x) => {
-      x = 0;
-    });
+    let sortedFilteredData = this.dataSource;
+      var tempValue = this.sortToggleCheck[key];
+      this.sortToggleCheck = [];
+      this.sortToggleCheck[key] = tempValue;
     // check if 0 or null
     if (this.sortToggleCheck[key]) {
+      // clear array first
       // if descending => change to ascending
       if (this.sortToggleCheck[key] === 1) {
         this.sortToggleCheck[key] = 2;
         sortedFilteredData = [...this.filteredData].sort(this.compareValues(key, 'asc'));
+      // if ascending => change to no sorting
       } else {
-        this.filteredData = this.dataSource;
+        // one for descending
+        this.sortToggleCheck[key] = 1;
+        // spread operator to create a copy of dataSource
+        sortedFilteredData = [...this.filteredData].sort(this.compareValues(key, 'desc'));
       }
     } else {
       // one for descending
@@ -98,8 +122,6 @@ export class AppComponent {
     }
     // put sorted data back into array
     this.filteredData = sortedFilteredData;
-    // for testing
-    console.log(this.sortToggleCheck);
   }
   /*
    * Helper function to reset the sort to the current order
