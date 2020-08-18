@@ -57,26 +57,21 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     margin: 0;
   }
   .mat-date-range-input-container {
-    padding-top: 0.25em;
-    padding-left: 15px;
-    font-size: 20px;
-    color: theme-color('text','default');
+    padding-top: 0.25em !important;
+    padding-left: 15px !important;
+    color: theme-color('text','default') !important;
   }
   .mat-button, .mat-icon-button, .mat-stroked-button, .mat-flat-button {
     padding: 0 !important;
     background-color: theme-color('background', 'header') !important;
     min-width: 0 !important;
   }
-}
-
-/* Styling Time-Savers */
-$icons: arrow01, arrow02, calender, clip, mail_sp, search;
-
-// creates background images for each icon
-@each $icon in $icons {
-  .icon-#{$icon} {
-    background-image: url('assets/img/icon_#{$icon}.svg');
+  /*
+  .mat-list-base .mat-list-item, .mat-list-base .mat-list-option {
+    min-height: 48px;
+    height: auto !important;
   }
+  */
 }
 
 // creates a central color scheme for the app

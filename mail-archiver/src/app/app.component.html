@@ -16,7 +16,9 @@
       <!--<mat-label></mat-label>-->
       <input matInput (keyup)="filterString()" placeholder="Search" [formControl]="textFilter">
     </mat-form-field>
-    <button mat-flat-button (click)="toggleSearchBar()"><img id="search-button" src="../assets/img/icon_search.svg"/></button>
+    <button mat-flat-button (click)="toggleSearchBar()">
+      <img id="search-button" src="../assets/img/icon_search.svg"/>
+    </button>
   </div>
 
   <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
@@ -30,34 +32,26 @@
     <mat-divider></mat-divider>
     <mat-list-item *ngIf="filteredData && filteredData.length"  id="email-list-header" role="listitem">
       <div class="email-header-container">
-        <div class="email-from-address">
-          <button mat-flat-button class="header-button" (click)="toggleSort('from')">
+        <div class="email-from-address" [ngClass]="{'bold-column': sortToggleCheck['from']}" (click)="toggleSort('from')">
             From
-            <span *ngIf="sortToggleCheck['from'] == 2" class="up-arrow">&#9650;</span>
-            <span *ngIf="sortToggleCheck['from'] == 1" class="down-arrow">&#9660;</span>
-          </button>
+            <span *ngIf="sortToggleCheck['from'] == 2" class="up-arrow"><img src="../assets/img/icon_arrow01.svg"></span>
+            <span *ngIf="sortToggleCheck['from'] == 1" class="down-arrow"><img src="../assets/img/icon_arrow01.svg"></span>
         </div>
-        <div class="email-to-address">
-          <button mat-flat-button class="header-button" (click)="toggleSort('to')">
+        <div class="email-to-address" [ngClass]="{'bold-column': sortToggleCheck['to']}" (click)="toggleSort('to')">
             To
-            <span *ngIf="sortToggleCheck['to'] == 2" class="up-arrow">&#9650;</span>
-            <span *ngIf="sortToggleCheck['to'] == 1" class="down-arrow">&#9660;</span>
-          </button>
+            <span *ngIf="sortToggleCheck['to'] == 2" class="up-arrow"><img src="../assets/img/icon_arrow01.svg"></span>
+            <span *ngIf="sortToggleCheck['to'] == 1" class="down-arrow"><img src="../assets/img/icon_arrow01.svg"></span>
         </div>
-        <div class="email-subject">
-          <button mat-flat-button class="header-button" (click)="toggleSort('subject')">
+        <div class="email-subject" [ngClass]="{'bold-column': sortToggleCheck['subject']}" (click)="toggleSort('subject')">
             Subject
-            <span *ngIf="sortToggleCheck['subject'] == 2" class="up-arrow">&#9650;</span>
-            <span *ngIf="sortToggleCheck['subject'] == 1" class="down-arrow">&#9660;</span>
-          </button>
+            <span *ngIf="sortToggleCheck['subject'] == 2" class="up-arrow"><img src="../assets/img/icon_arrow01.svg"></span>
+            <span *ngIf="sortToggleCheck['subject'] == 1" class="down-arrow"><img src="../assets/img/icon_arrow01.svg"></span>
         </div>
-        <div class="email-date">
-          <button mat-flat-button class="header-button" (click)="toggleSort('date')">
+        <div class="email-date" [ngClass]="{'bold-column': sortToggleCheck['date']}" (click)="toggleSort('date')">
             <span>&nbsp;&nbsp;</span>
             Date
-            <span *ngIf="sortToggleCheck['date'] == 2" class="up-arrow">&#9650;</span>
-            <span *ngIf="sortToggleCheck['date'] == 1" class="down-arrow">&#9660;</span>
-          </button>
+            <span *ngIf="sortToggleCheck['date'] == 2" class="up-arrow"><img src="../assets/img/icon_arrow01.svg"></span>
+            <span *ngIf="sortToggleCheck['date'] == 1" class="down-arrow"><img src="../assets/img/icon_arrow01.svg"></span>
         </div>
       </div>
       </mat-list-item>
@@ -66,15 +60,18 @@
     <mat-list-item *ngFor="let data of filteredData" id="email-list-item" role="listitem">
       <div class="email-container">
         <div class="email-image"><img src="../assets/img/icon_mail_sp.svg"/></div>
-        <div class="email-from-address"><p>{{data.from}}</p></div>
-        <div class="email-to-address"><p>{{data.to}}</p></div>
+        <div class="email-from-address" [ngClass]="{'bold-column': sortToggleCheck['from']}"><p>{{data.from}}</p></div>
+        <div class="email-to-address" [ngClass]="{'bold-column': sortToggleCheck['to']}"><p>{{data.to}}</p></div>
         <div class="email-reply-count"><p *ngIf="data.reply">+{{data.reply.length}}</p></div>
-        <div class="email-subject"><p>{{data.subject}}</p></div>
+        <div class="email-subject" [ngClass]="{'bold-column': sortToggleCheck['subject']}"><p>{{data.subject}}</p></div>
         <!-- Date Pipe -->
-        <div class="email-date">
+        <div class="email-date" [ngClass]="{'bold-column': sortToggleCheck['date']}">
           <img *ngIf="data.attachment" src="../assets/img/icon_clip.svg">
           <span *ngIf="!data.attachment">&nbsp;</span>
           {{data.date | customDate}}
+        </div>
+        <div class="email-arrow">
+          <img src="../assets/img/icon_arrow02.svg">
         </div>
       </div>
       <mat-divider></mat-divider>
