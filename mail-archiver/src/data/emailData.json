@@ -4,7 +4,7 @@
     "to": "zzz.zzz@example.com",
     "reply": false,
     "subject": "[ HR-888 ] Notice of official announcement",
-    "msg": "This is a big announcement. Read carefully: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ex eros, condimentum vel felis et, lacinia dignissim ligula. Duis sollicitudin eget nunc quis lobortis. Maecenas sed imperdiet orci, eu blandit magna. In hac habitasse platea dictumst. ",
+    "msg": "Greetings everyone. \n\n This is a big announcement, so make sure you read carefully: \n\n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ex eros, condimentum vel felis et, lacinia dignissim ligula. Duis sollicitudin eget nunc quis lobortis. Maecenas sed imperdiet orci, eu blandit magna. In hac habitasse platea dictumst. \n\n Thanks,\n-HR",
     "attachment": false,
     "date": "January 3 2020 0:20"
   },
@@ -13,7 +13,7 @@
     "to": "yyy@example.com",
     "reply": false,
     "subject": "[web:333] \"Web Contact\"",
-    "msg": "This is a web contact.",
+    "msg": "Here is my web contact.",
     "attachment": false,
     "date": "January 3 2020 0:10"
   },
@@ -117,7 +117,7 @@
     "subject": "I love you",
     "msg": "Hello secret lover, lets go get drinks tonight. Attached is my number. xoxo -iii",
     "attachment": true,
-    "date": "December 12 2019 13:34"
+    "date": "December 31 2019 13:34"
   },
   {
     "from": "Pablo-Diego-José-Francisco@example.com",
@@ -126,6 +126,6 @@
     "subject": "[info:888] ABC EQUIPMENT COMPANY",
     "msg": "Reminder to myself: pick up this item at ABC after work.",
     "attachment": false,
-    "date": "December 12 2019 13:00"
+    "date": "December 31 2019 13:00"
   }
 ]

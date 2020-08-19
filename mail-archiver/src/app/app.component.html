@@ -1,7 +1,8 @@
-<!-- Main Content -->
+<!-- Start Container -->
 <div id="mail-archiver-container">
-  <!-- Date Picker -->
+  
   <div id="header-bar">
+    <!-- Calender bar -->
     <mat-form-field id="calender-bar" appearance="none">
       <mat-label></mat-label>  
       <mat-date-range-input id="calender-range" [formGroup]="range" [rangePicker]="picker">
@@ -13,7 +14,6 @@
     </mat-form-field>
     <!-- Search Bar -->
     <mat-form-field [ngClass]="searchToggle ? 'show' : 'hide'" id="search-bar" floatLabel="never" appearance="none">
-      <!--<mat-label></mat-label>-->
       <input matInput (keyup)="filterValues()" placeholder="Search" [formControl]="textFilter">
     </mat-form-field>
     <button mat-flat-button (click)="toggleSearchBar()">
@@ -23,11 +23,13 @@
 
   <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
   <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+
   <!-- Email Count -->
   <div id="email-count">
     <p>Results: <b>{{filteredData.length}}</b> mail(s) </p>
   </div>
-  <!-- Email List Header -->
+
+  <!-- Email List Header (From/To/Subject/Date) -->
   <mat-list role="list" >
     <mat-divider></mat-divider>
     <mat-list-item *ngIf="filteredData && filteredData.length"  id="email-list-header" role="listitem">
@@ -56,27 +58,36 @@
       </div>
       </mat-list-item>
     <mat-divider></mat-divider>
+
     <!-- Email List -->
     <mat-list-item *ngFor="let data of filteredData" id="email-list-item" role="listitem">
-      <div class="email-container">
-        <div class="email-image"><img src="../assets/img/icon_mail_sp.svg"/></div>
-        <div class="email-from-address" [ngClass]="{'bold-column': sortToggleCheck['from']}"><p>{{data.from}}</p></div>
-        <div class="email-to-address" [ngClass]="{'bold-column': sortToggleCheck['to']}"><p>{{data.to}}</p></div>
-        <div class="email-reply-count"><p *ngIf="data.reply">+{{data.reply.length}}</p></div>
-        <div class="email-subject" [ngClass]="{'bold-column': sortToggleCheck['subject']}"><p>{{data.subject}}</p></div>
-        <!-- Date Pipe -->
-        <div class="email-date" [ngClass]="{'bold-column': sortToggleCheck['date']}">
-          <img *ngIf="data.attachment" src="../assets/img/icon_clip.svg">
-          <span *ngIf="!data.attachment">&nbsp;</span>
-          {{data.date | customDate}}
-        </div>
-        <div class="email-arrow">
-          <img src="../assets/img/icon_arrow02.svg">
-        </div>
-      </div>
+
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>    
+          <div class="email-container">
+            <div class="email-image"><img src="../assets/img/icon_mail_sp.svg"/></div>
+            <div class="email-from-address" [ngClass]="{'bold-column': sortToggleCheck['from']}"><p>{{data.from}}</p></div>
+            <div class="email-to-address" [ngClass]="{'bold-column': sortToggleCheck['to']}"><p>{{data.to}}</p></div>
+            <div class="email-reply-count"><p *ngIf="data.reply">+{{data.reply.length}}</p></div>
+            <div class="email-subject" [ngClass]="{'bold-column': sortToggleCheck['subject']}"><p>{{data.subject}}</p></div>
+            <!-- Date Pipe -->
+            <div class="email-date" [ngClass]="{'bold-column': sortToggleCheck['date']}">
+              <img *ngIf="data.attachment" src="../assets/img/icon_clip.svg">
+              <span *ngIf="!data.attachment">&nbsp;</span>
+              {{data.date | customDate}}
+            </div>
+            <div class="email-arrow">
+              <img src="../assets/img/icon_arrow02.svg">
+            </div>      
+          </div>
+        </mat-expansion-panel-header>
+        <div class="email-msg">{{data.msg}}</div>
+      </mat-expansion-panel>
+
       <mat-divider></mat-divider>
     </mat-list-item>
   </mat-list>
+
   <!-- Logo Image -->
   <div id="logo-image" *ngIf="!filteredData || !filteredData.length">
     <img src="../assets/img/logo.png">

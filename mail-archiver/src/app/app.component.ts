@@ -61,7 +61,7 @@ export class AppComponent {
    */
   public filterValues() {
     // Gather up text and date filters
-    let firstDateTime = this.firstDate ? new Date(new Date(this.firstDate).setHours(0, 0, 0, 0)).getTime() : null;
+    let firstDateTime = this.firstDate ? new Date(new Date(this.firstDate).setHours(0, 0, 0, 0)).getTime() - 1 : null;
     let secondDateTime = this.secondDate ? new Date(new Date(this.secondDate).setHours(23, 59, 59, 59)).getTime() : null;
     let textFilterValue = this.textFilter.value ? this.textFilter.value.trim().toLowerCase() : null;
     

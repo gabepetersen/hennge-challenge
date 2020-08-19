@@ -69,12 +69,29 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   .mat-form-field-type-mat-date-range-input .mat-form-field-infix {
     width: 100% !important;
   }
-  /*
-  .mat-list-base .mat-list-item, .mat-list-base .mat-list-option {
-    min-height: 48px;
+  .mat-list-base .mat-list-item, .mat-list-base .mat-list-option, .mat-list-item-content {
     height: auto !important;
+    min-height: 50px;
   }
-  */
+  .mat-expansion-panel-header  {
+    min-height: 50px !important;
+    padding: 0 !important;
+    &:hover {
+      background: none !important;
+    }
+  }
+  .mat-expansion-panel {
+    color: inherit !important;
+    width: 100% !important;
+    box-shadow: none !important;
+    background: none !important;
+    background-color: transparent !important;
+  }
+  @media only screen and (max-width: 1000px) {
+    .mat-expansion-panel-header  {
+      min-height: 120px !important;
+    }
+  }
 }
 
 // creates a central color scheme for the app

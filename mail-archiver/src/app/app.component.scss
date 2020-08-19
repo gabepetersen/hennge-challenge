@@ -103,6 +103,9 @@
 /* ----------------------------- */
 #email-list-header {
   background-color: theme-color('background', 'header');
+  & > .mat-list-item-content {
+    height: 50px !important;
+  }
 }
 #email-list-item {
   color: theme-color('text', 'default');
@@ -132,6 +135,7 @@
   }
   font-size: 19px;
   width: 100%;
+  height: 100%;
   display: grid;
   column-gap: 20px;
   align-items: center;
@@ -194,12 +198,19 @@
 .email-arrow {
   display: none;
 }
+.email-msg {
+  color: theme-color('text', 'default');
+  &:hover {
+    color: theme-color('text', 'default');
+    background-color: theme-color('background', 'email');
+  }
+  padding-right: 40%;
+}
 
-
-
-
-
-
+/**
+ *
+ * Responsive Styling
+ */
 
 // prevent Date overflow on narrow desktop/large tablet view
 @media only screen and (max-width: 1300px) {
@@ -211,9 +222,7 @@
     padding: 2% 3%;
   }
 }
-/**
- * Responsive Styling
- */
+// For tablets and most phones
 @media only screen and (max-width: 1000px) {
   #calender-picker {
     width: 70%;
@@ -223,9 +232,6 @@
 
   #mail-archiver-container {
     padding: 2% 0;
-  }
-  #email-list-item {
-    height: 120px !important;
   }
   #header-bar {
     padding: 1% 25px;
