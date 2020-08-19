@@ -5,8 +5,8 @@
     <mat-form-field id="calender-bar" appearance="none">
       <mat-label></mat-label>  
       <mat-date-range-input id="calender-range" [formGroup]="range" [rangePicker]="picker">
-        <input matInput matStartDate formControlName="start" placeholder="Start date" (dateChange)="filterString()">
-        <input matInput matEndDate formControlName="end" placeholder="End date" (dateChange)="filterString()">
+        <input matInput matStartDate formControlName="start" placeholder="Start date" (dateChange)="filterValues()">
+        <input matInput matEndDate formControlName="end" placeholder="End date" (dateChange)="filterValues()">
       </mat-date-range-input>
       <mat-datepicker-toggle matPrefix [for]="picker"><img id="calender-picker" matDatepickerToggleIcon src="../assets/img/icon_calender.svg"/></mat-datepicker-toggle>
       <mat-date-range-picker #picker disabled="false"></mat-date-range-picker> 
@@ -14,7 +14,7 @@
     <!-- Search Bar -->
     <mat-form-field [ngClass]="searchToggle ? 'show' : 'hide'" id="search-bar" floatLabel="never" appearance="none">
       <!--<mat-label></mat-label>-->
-      <input matInput (keyup)="filterString()" placeholder="Search" [formControl]="textFilter">
+      <input matInput (keyup)="filterValues()" placeholder="Search" [formControl]="textFilter">
     </mat-form-field>
     <button mat-flat-button (click)="toggleSearchBar()">
       <img id="search-button" src="../assets/img/icon_search.svg"/>

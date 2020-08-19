@@ -18,11 +18,15 @@ export class AppComponent {
   public filteredData: Array<any>;
   searchToggle: boolean = false;
 
+  // text filter control
   public textFilter: FormControl;
+  // date form controls
   range = new FormGroup({
     start: new FormControl(),
     end: new FormControl()
   });
+  get firstDate() { return this.range.get('start').value; }
+  get secondDate() { return this.range.get('end').value; }
 
   constructor() {
     // search bar form control
@@ -40,25 +44,23 @@ export class AppComponent {
     this.resetSort('date');
   }
 
-  // date form controls
-  get firstDate() { return this.range.get('start').value; }
-  get secondDate() { return this.range.get('end').value; }
-
+  /*
+   * Toggles the text with the search button
+   */
   toggleSearchBar() {
     this.searchToggle = !this.searchToggle;
     // clear the text filter on clicking the button
     if (!this.searchToggle) {
       this.textFilter.setValue('');
+      this.filterValues();
     }
   }
 
   /*
    * Filters based on current search date filters and stores it in this.filteredData
    */
-  public filterString() {
-    console.log(this.firstDate);
-    console.log(this.secondDate);
-
+  public filterValues() {
+    // Gather up text and date filters
     let firstDateTime = this.firstDate ? new Date(new Date(this.firstDate).setHours(0, 0, 0, 0)).getTime() : null;
     let secondDateTime = this.secondDate ? new Date(new Date(this.secondDate).setHours(23, 59, 59, 59)).getTime() : null;
     let textFilterValue = this.textFilter.value ? this.textFilter.value.trim().toLowerCase() : null;
@@ -97,12 +99,12 @@ export class AppComponent {
    */
   public toggleSort(key: string) {
     let sortedFilteredData = this.dataSource;
-      var tempValue = this.sortToggleCheck[key];
-      this.sortToggleCheck = [];
-      this.sortToggleCheck[key] = tempValue;
+    var tempValue = this.sortToggleCheck[key];
+    // clear array
+    this.sortToggleCheck = [];
+    this.sortToggleCheck[key] = tempValue;
     // check if 0 or null
     if (this.sortToggleCheck[key]) {
-      // clear array first
       // if descending => change to ascending
       if (this.sortToggleCheck[key] === 1) {
         this.sortToggleCheck[key] = 2;
@@ -141,26 +143,24 @@ export class AppComponent {
 
   /*
    * compare function for sorting an array of objects based on the key
+   * this is so that the sort function can handle the date values (milliseconds) as well
    * referenced from: https://www.sitepoint.com/sort-an-array-of-objects-in-javascript/
    */
-  public compareValues(key, order = 'asc') {
+  public compareValues(key, order = 'desc') {
     return function innerSort(a, b) {
       if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
-        // property doesn't exist on either object
         return 0;
       }
-      const varA = (typeof a[key] === 'string') ? a[key].toUpperCase() : a[key];
-      const varB = (typeof b[key] === 'string') ? b[key].toUpperCase() : b[key];
+      const value1 = (typeof a[key] === 'string') ? a[key].toUpperCase() : a[key];
+      const value2 = (typeof b[key] === 'string') ? b[key].toUpperCase() : b[key];
   
-      let comparison = 0;
-      if (varA > varB) {
-        comparison = 1;
-      } else if (varA < varB) {
-        comparison = -1;
+      let compare = 0;
+      if (value1 > value2) {
+        compare = 1;
+      } else if (value1 < value2) {
+        compare = -1;
       }
-      return (
-        (order === 'desc') ? (comparison * -1) : comparison
-      );
+      return ( (order === 'desc') ? (compare * -1) : compare );
     };
   }
   
