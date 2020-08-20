@@ -4,7 +4,7 @@
     "to": "zzz.zzz@example.com",
     "reply": false,
     "subject": "[ HR-888 ] Notice of official announcement",
-    "msg": "Greetings everyone. \n\n This is a big announcement, so make sure you read carefully: \n\n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ex eros, condimentum vel felis et, lacinia dignissim ligula. Duis sollicitudin eget nunc quis lobortis. Maecenas sed imperdiet orci, eu blandit magna. In hac habitasse platea dictumst. \n\n Thanks,\n-HR",
+    "msg": "Greetings everyone.\n\nThis is a big announcement, so make sure you read carefully:\n\n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ex eros, condimentum vel felis et, lacinia dignissim ligula. Duis sollicitudin eget nunc quis lobortis. Maecenas sed imperdiet orci, eu blandit magna. In hac habitasse platea dictumst.\n\n Thanks,\n-HR",
     "attachment": false,
     "date": "January 3 2020 0:20"
   },
@@ -13,7 +13,7 @@
     "to": "yyy@example.com",
     "reply": false,
     "subject": "[web:333] \"Web Contact\"",
-    "msg": "Here is my web contact.",
+    "msg": "Web contact stuff goes here.",
     "attachment": false,
     "date": "January 3 2020 0:10"
   },
@@ -26,13 +26,13 @@
         "to": "ccc@example.com",
         "reply": false,
         "subject": "Re: Happy New Year! Greetings for the New Year.",
-        "msg": "Thank you ccc, I hope you have a good 2020 as well. -uuu",
+        "msg": "Thank you ccc,\n\nI hope you have a good 2020 as well.\n-uuu",
         "attachment": false,
         "date": "January 3 2020 5:23"
       }
     ],
     "subject": "Happy New Year! Greetings for the New Year.",
-    "msg": "Hello all! I hope you have a great 2020! Best, -ccc",
+    "msg": "Hello all!\n\nI hope you have a great 2020!\n\nBest,\n-ccc",
     "attachment": true,
     "date": "January 3 2020 0:00"
   },
@@ -51,7 +51,7 @@
       }
     ],
     "subject": "[HR-887(Revised: Office Expansion Project Team)] Notice of office expansion.",
-    "msg": "The office is scheduled to expand on February 4th. You will be notified if you have to change stations on January 25th. Thank you for your cooperation.",
+    "msg": "Happy new year everyone,\n\nThe office is scheduled to expand on February 4th. You will be notified if you have to change stations on January 25th.\n\nThank you for your cooperation,\n-HR",
     "attachment": false,
     "date": "January 1 2020 11:33"
   },
@@ -79,7 +79,7 @@
       }
     ],
     "subject": "[Github] Logout page",
-    "msg": "Once the user logs out, the app should be refreshed and redirected to the sign in page.",
+    "msg": "\nOnce the user logs out,\nthe app should be refreshed and redirected to the sign in page.",
     "attachment": false,
     "date": "January 1 2020 11:32"
   },
@@ -88,7 +88,7 @@
     "to": "qqq.qqq@example.com",
     "reply": false,
     "subject": "[dev]Postfix 3.1.12 / 3.2.9 / 3.3.4 / 3.4.5",
-    "msg": "",
+    "msg": "Testing Really long message: Blow the man down sloop jack Barbary Coast bowsprit gangway weigh anchor capstan careen yardarm salmagundi gunwalls parley Sail ho Jolly Roger topmast gaff run a rig long clothes yo-ho-ho. Landlubber or just lubber salmagundi take a caulk wench jack lugsail list clipper coxswain bilge water schooner hail-shot stern cutlass lugger overhaul reef hempen halter brig Pirate Round. Arr heave down lee spyglass hulk hardtack yard transom loaded to the gunwalls Plate Fleet no prey, no pay Nelsons folly blow the man down heave to belaying pin furl bounty gaff schooner scuttle. Take a caulk walk the plank squiffy prow six pounders bilge rum stern maroon bilge water barque crow's nest barkadeer spirits Privateer swing the lead mizzen belay splice the main brace tack. Brig hang the jib gabion American Main avast aft snow ho Sink me gibbet cackle fruit yo-ho-ho fathom blow the man down draft scourge of the seven seas lanyard Nelsons folly keelhaul quarter. Yawl hail-shot strike colors scourge of the seven seas scuppers smartly sheet league lugger mutiny belaying pin scurvy topmast measured fer yer chains rigging case shot quarterdeck lugsail trysail Jolly Roger. Chain Shot Nelsons folly capstan black jack bilged on her anchor ahoy run a rig Corsair driver scurvy main sheet ye Brethren of the Coast grog blossom pirate boom boatswain long boat hogshead hempen halter. ",
     "attachment": false,
     "date": "January 1 2020 9:00"
   },
@@ -97,7 +97,7 @@
     "to": "ppp@example.com",
     "reply": false,
     "subject": "Re: [Github] Brush-up on loading animation",
-    "msg": "Take a look at this loading animation, let's compare it this afternoon to other methods.",
+    "msg": "Take a look at this loading animation, let's compare it this afternoon to other methods.\n\nThanks,\n-ggg",
     "attachment": false,
     "date": "January 1 2020 6:25"
   },
@@ -106,7 +106,7 @@
     "to": "ooo.ooo@example.com",
     "reply": false,
     "subject": "Workplace Summary for sample, Inc.: Jun 2 - Jun 9",
-    "msg": "Hello ooo, attached is the summary for our workplace for June 2-9 of 2019. This includes everything we did and how we did it. Best Regards, -hhh.",
+    "msg": "Hello ooo,\n\nAttached is the summary for our workplace for June 2-9 of 2019. This includes everything we did and how we did it.\n\nBest Regards,\n-hhh.",
     "attachment": true,
     "date": "January 1 2020 5:12"
   },
@@ -115,7 +115,7 @@
     "to": "nnn@example.com",
     "reply": false,
     "subject": "I love you",
-    "msg": "Hello secret lover, lets go get drinks tonight. Attached is my number. xoxo -iii",
+    "msg": "Hello nnn,\n\nlets go get drinks tonight.\n\nAttached is my number - call me.\n\nxoxo,\n -iii",
     "attachment": true,
     "date": "December 31 2019 13:34"
   },

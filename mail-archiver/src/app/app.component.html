@@ -81,7 +81,7 @@
             </div>      
           </div>
         </mat-expansion-panel-header>
-        <div class="email-msg">{{data.msg}}</div>
+        <div class="email-msg"><p [innerHTML]="replaceBreaks(data.msg)"></p></div>
       </mat-expansion-panel>
 
       <mat-divider></mat-divider>

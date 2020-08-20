@@ -15,6 +15,7 @@ export class AppComponent {
   public dataSource: any;
   public currentDate: Date;
   public sortToggleCheck: Array<any>;
+  public sortKey: string;
   public filteredData: Array<any>;
   searchToggle: boolean = false;
 
@@ -41,7 +42,8 @@ export class AppComponent {
     });
     // automatically set the sorting based on date
     this.sortOrder = 'desc';
-    this.resetSort('date');
+    this.sortKey = 'date';
+    this.resetSort();
   }
 
   /*
@@ -53,6 +55,7 @@ export class AppComponent {
     if (!this.searchToggle) {
       this.textFilter.setValue('');
       this.filterValues();
+      this.resetSort();
     }
   }
 
@@ -98,29 +101,33 @@ export class AppComponent {
    * Toggles the sort of the data based on a header
    */
   public toggleSort(key: string) {
+    this.sortKey = key;
     let sortedFilteredData = this.dataSource;
-    var tempValue = this.sortToggleCheck[key];
+    var tempValue = this.sortToggleCheck[this.sortKey];
     // clear array
     this.sortToggleCheck = [];
-    this.sortToggleCheck[key] = tempValue;
+    this.sortToggleCheck[this.sortKey] = tempValue;
     // check if 0 or null
-    if (this.sortToggleCheck[key]) {
+    if (this.sortToggleCheck[this.sortKey]) {
       // if descending => change to ascending
-      if (this.sortToggleCheck[key] === 1) {
-        this.sortToggleCheck[key] = 2;
-        sortedFilteredData = [...this.filteredData].sort(this.compareValues(key, 'asc'));
+      if (this.sortToggleCheck[this.sortKey] === 1) {
+        this.sortToggleCheck[this.sortKey] = 2;
+        sortedFilteredData = [...this.filteredData].sort(this.compareValues(this.sortKey, 'asc'));
+        this.sortOrder = 'asc';
       // if ascending => change to no sorting
       } else {
         // one for descending
-        this.sortToggleCheck[key] = 1;
+        this.sortToggleCheck[this.sortKey] = 1;
         // spread operator to create a copy of dataSource
-        sortedFilteredData = [...this.filteredData].sort(this.compareValues(key, 'desc'));
+        sortedFilteredData = [...this.filteredData].sort(this.compareValues(this.sortKey, 'desc'));
+        this.sortOrder = 'desc';
       }
     } else {
       // one for descending
-      this.sortToggleCheck[key] = 1;
+      this.sortToggleCheck[this.sortKey] = 1;
       // spread operator to create a copy of dataSource
-      sortedFilteredData = [...this.filteredData].sort(this.compareValues(key, 'desc'));
+      sortedFilteredData = [...this.filteredData].sort(this.compareValues(this.sortKey, 'desc'));
+      this.sortOrder = 'desc';
     }
     // put sorted data back into array
     this.filteredData = sortedFilteredData;
@@ -128,15 +135,15 @@ export class AppComponent {
   /*
    * Helper function to reset the sort to the current order
    */
-  public resetSort(key) {
+  public resetSort() {
     let sortedFilteredData;
     if (this.sortOrder === 'asc') {
-      this.sortToggleCheck[key] = 2;
-      sortedFilteredData = [...this.filteredData].sort(this.compareValues(key, 'asc'));
+      this.sortToggleCheck[this.sortKey] = 2;
+      sortedFilteredData = [...this.filteredData].sort(this.compareValues(this.sortKey, this.sortOrder));
       this.filteredData = sortedFilteredData;
     } else if (this.sortOrder == 'desc') {
-      this.sortToggleCheck[key] = 1;
-      sortedFilteredData = [...this.filteredData].sort(this.compareValues(key, 'desc'));
+      this.sortToggleCheck[this.sortKey] = 1;
+      sortedFilteredData = [...this.filteredData].sort(this.compareValues(this.sortKey, this.sortOrder));
       this.filteredData = sortedFilteredData;
     }
   }
@@ -163,5 +170,11 @@ export class AppComponent {
       return ( (order === 'desc') ? (compare * -1) : compare );
     };
   }
-  
+
+  /**
+   * replace all the pseudo-newline characters in the json texts
+   */
+  public replaceBreaks(msgData: string) {
+    return msgData.replace(/\n/g, "<br/>");
+  }
 }

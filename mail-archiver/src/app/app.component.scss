@@ -1,5 +1,9 @@
 @import '../styles.scss';
 
+.highlight-text {
+  background-color: #ffffff;
+  color: red;
+}
 #mail-archiver-container {
   padding: 2% 5%;
 }
@@ -200,9 +204,11 @@
 }
 .email-msg {
   color: theme-color('text', 'default');
+  background: none;
   &:hover {
     color: theme-color('text', 'default');
-    background-color: theme-color('background', 'email');
+    background-color: theme-color('background', 'default');
+    background: none;
   }
   padding-right: 40%;
 }
@@ -219,7 +225,7 @@
     grid-gap: 10px;
   }
   #mail-archiver-container {
-    padding: 2% 3%;
+    padding: 3% 3%;
   }
 }
 // For tablets and most phones
@@ -231,10 +237,10 @@
   }
 
   #mail-archiver-container {
-    padding: 2% 0;
+    padding: 25px 0;
   }
   #header-bar {
-    padding: 1% 25px;
+    padding: 0 25px;
   }
   #calender-bar {
     flex: 0 0 320px;
@@ -298,7 +304,7 @@
       border-right: 1px solid theme-color('text', 'sub-heading');
       // padding-right: 3px;
     }
-    column-gap: 8px;
+    column-gap: 12px;
     font-size: 13px;
     grid-template-columns: repeat(4, minmax(min-content, auto)) 0.8fr;
     grid-template-rows: 1fr;
@@ -327,8 +333,24 @@
       padding-right: 0;
     }
   }
+  .email-msg {
+    padding-right: 10%;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .email-header-container {
+    column-gap: 1.5em;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .email-header-container {
+    column-gap: 1em;
+  }
 }
 @media only screen and (max-width: 450px) {
+  .email-header-container {
+    column-gap: 8px;
+  }
   #calender-bar {
     flex: 0 0 250px;
   }
@@ -339,17 +361,23 @@
     max-width: 180px;
   }
 }
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 380px) {
+  #mail-archiver-container {
+    padding: 20px 0;
+  }
   #header-bar {
+    padding: 0 20px;
     & > button {
       flex: 0 0 50px;
     }
   }
   #calender-bar {
     flex: 0 0 200px !important;
+    font-size: 13px !important;
   }
   #search-bar {
     flex: 0 0 150px;
+    font-size: 13px;
   }
   #search-button {
     width: 20px;
