@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { AppRoutingModule } from './app-routing.module';
+// import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -40,6 +40,8 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { CustomDatePipe } from './pipes/custom-date.pipe';
+
+import {MAT_DATE_LOCALE} from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -86,6 +88,7 @@ import { CustomDatePipe } from './pipes/custom-date.pipe';
   providers: [
     MatDatepickerModule,  
     MatNativeDateModule,
+    {provide: MAT_DATE_LOCALE, useValue: 'ja-JP'},
   ],
   bootstrap: [AppComponent]
 })

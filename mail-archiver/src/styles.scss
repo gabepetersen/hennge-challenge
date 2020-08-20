@@ -69,6 +69,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   .mat-form-field-type-mat-date-range-input .mat-form-field-infix {
     width: 100% !important;
   }
+  .mat-form-field-flex {
+    align-items: center !important;
+  }
   .mat-list-base .mat-list-item, .mat-list-base .mat-list-option, .mat-list-item-content {
     height: auto !important;
     min-height: 50px;
