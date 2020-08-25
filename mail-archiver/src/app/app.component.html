@@ -4,7 +4,7 @@
   <div id="header-bar">
     <!-- Calender bar -->
     <mat-form-field id="calender-bar" appearance="none">
-      <mat-label></mat-label>  
+      <mat-label></mat-label>
       <mat-date-range-input id="calender-range" [formGroup]="range" [rangePicker]="picker">
         <input matInput matStartDate formControlName="start" placeholder="Start date" (dateChange)="filterValues()">
         <input matInput matEndDate formControlName="end" placeholder="End date" (dateChange)="filterValues()">

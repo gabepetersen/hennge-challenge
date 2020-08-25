@@ -1,12 +1,20 @@
 @import '../styles.scss';
 
-.highlight-text {
-  background-color: #ffffff;
-  color: red;
-}
+// main container
 #mail-archiver-container {
   padding: 2% 5%;
 }
+// email active count style
+#email-count {
+  padding-top: 25px;
+  color: theme-color('text', 'sub-heading');
+  font-weight: 800;
+  font-size: 18px;
+  & b {
+    font-size: 22px;
+  }
+}
+// main logo image if no emails
 #logo-image {
   & img {
     position: fixed;
@@ -15,11 +23,14 @@
     transform: translate(-50%, -50%);
   }
 }
+/* --------------------------------------- */
+/* ----------- Sorting Styles ------------ */
+/* --------------------------------------- */
 .up-arrow {
   & img {
     width: 10px !important;
     height: auto;
-    padding: 0 3px 3px 5px !important;
+    padding: 0 3px 3px 5px ;
   }
   text-align: center;
 }
@@ -28,7 +39,7 @@
     width: 10px !important;
     height: auto;
     transform: rotate(180deg);
-    padding: 0 3px 3px 5px !important;
+    padding: 0 3px 3px 5px;
   }
   text-align: center;
 }
@@ -41,12 +52,8 @@
 /* --------------------------------------- */
 /* ------ Search/Calendar Container ------ */
 /* --------------------------------------- */
-#calender-picker {
-  width: 60%;
-  height: auto;
-  margin: 0 15px 10px 15px;
-}
 
+// Div encapsulating the calendar and search bar
 #header-bar {
   display: flex;
   flex-wrap: wrap;
@@ -63,9 +70,11 @@
     border: 1px solid theme-color('border', 'primary');
   }
 }
-#calender-bar {
-  
-  font-size: 19px !important;
+
+// container for calendar input
+#calender-bar { 
+  font-size: 19px;
+  // border stuffs
   box-shadow: inset 0 0 3px theme-color('border', 'primary');
   border-top: 1px solid theme-color('border', 'primary');
   border-bottom: 1px solid theme-color('border', 'primary');
@@ -75,10 +84,17 @@
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 10px;
   // standardized component on both mobile and desktop
-  // width: 300px;
   height: 50px;
   flex: 0 0 300px;
 }
+// calendar icon that brings up mat-date-range-input
+#calender-picker {
+  width: 30px;
+  height: auto;
+  margin-left: 10px;
+}
+
+// container for text filter input
 #search-bar {
   box-shadow: inset 0 0 3px theme-color('border', 'primary');
   border-top: 1px solid theme-color('border', 'primary');
@@ -86,14 +102,11 @@
   transition: all 0.15s ease-in-out;
   font-size: 19px;
   color: theme-color('text', 'default');
-
+  height: 50px;
   flex: 0 0 300px;
 }
-#search-button {
-  width: 30px;
-  height: auto;
-}
 // show and hide classes for the search bar
+// --- max-width transition
 .show {
   max-width: 300px;
   border-left: 1px solid theme-color('border', 'primary');
@@ -102,23 +115,20 @@
   max-width: 0;
   border-left: 0;
 }
+#search-button {
+  width: 30px;
+  height: auto;
+}
+
+
 /* ----------------------------- */
 /* ------ Email Container ------ */
 /* ----------------------------- */
+// main header container
 #email-list-header {
   background-color: theme-color('background', 'header');
-  & > .mat-list-item-content {
-    height: 50px !important;
-  }
 }
-#email-list-item {
-  color: theme-color('text', 'default');
-  &:hover {
-    color: theme-color('text', 'link');
-    background-color: theme-color('background', 'email');
-  }
-}
-// inherits email-container grid layout
+// inherits email-container grid layout -- see below
 .email-header-container {
   @extend .email-container;
   color: theme-color('text', 'sub-heading') !important;
@@ -128,15 +138,16 @@
     width: 100%;
   }
 }
+
+// main container for email list item
+#email-list-item {
+  color: theme-color('text', 'default');
+  &:hover {
+    color: theme-color('text', 'link');
+    background-color: theme-color('background', 'email');
+  }
+}
 .email-container {
-  & div {
-    max-width: 100%;
-  }
-  & div p {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
   font-size: 19px;
   width: 100%;
   height: 100%;
@@ -148,16 +159,16 @@
   grid-template-rows: minmax(0, 1fr);
   grid-template-areas: 
     "from-address to-address reply-count subject date";
-}
-#email-count {
-  padding-top: 25px;
-  color: theme-color('text', 'sub-heading');
-  font-weight: 800;
-  font-size: 18px;
-  & b {
-    font-size: 22px;
+  & div {
+    max-width: 100%;
+  }
+  & div p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
+// These are the respective grid areas for each email
 .email-image {
   display: none;
   grid-area: email-image;
@@ -216,49 +227,69 @@
 /**
  *
  * Responsive Styling
+ * Sections based on max-width: 1300, 1000, 800, 600, 450, 380 px views
+ *
  */
 
 // prevent Date overflow on narrow desktop/large tablet view
 @media only screen and (max-width: 1300px) {
+  #mail-archiver-container {
+    padding: 3% 3%;
+  }
   .email-container {
     font-size: 15px;
     grid-gap: 10px;
   }
-  #mail-archiver-container {
-    padding: 3% 3%;
-  }
 }
 // For tablets and most phones
 @media only screen and (max-width: 1000px) {
-  #calender-picker {
-    width: 70%;
-    height: auto;
-    margin: 10px 15px 10px 15px;
-  }
-
   #mail-archiver-container {
     padding: 25px 0;
   }
+  #email-count {
+    padding: 25px 25px 0 25px;
+  }
+  // adjust dimensions of input fields
   #header-bar {
     padding: 0 25px;
   }
   #calender-bar {
     flex: 0 0 320px;
-    font-size: 16px !important;
+    & input {
+      font-size: 16px;
+    }
+  }
+  #calender-picker {
+    width: 25px;
+    height: auto;
+    margin: 10px 15px 10px 15px;
   }
   #search-bar {
     flex: 0 0 250px;
     font-size: 16px;
-    padding-top: 7px;
     transition: none;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
   }
   .show {
     max-width: 250px;
     border-left: 1px solid theme-color('border', 'primary');
   }
-
+  // keep same grid areas as desktop for header
+  .email-header-container {
+    & .email-date {
+      overflow: visible;
+      border-right: none;
+    }
+    & div {
+      border-right: 1px solid theme-color('text', 'sub-heading');
+    }
+    column-gap: 12px;
+    font-size: 13px;
+    grid-template-columns: repeat(4, minmax(min-content, auto)) 0.8fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+      "from-address to-address subject date";
+  }
+  // for email container - adopt new grid areas
   .email-container {
     font-size: 17px;
     grid-row-gap: 5px;
@@ -270,10 +301,7 @@
       "email-image to-address to-address reply-count reply-count"
       "subject subject subject subject subject";
   }
-  #email-count {
-    padding: 25px 25px 0 25px;
-  }
-
+  // new display of grid area parts - add email arrow and email image
   .email-arrow {
     display: block;
     grid-area: email-arrow;
@@ -295,29 +323,12 @@
       font-size: 13px;
     }
   }
-  .email-header-container {
-    & .email-date {
-      overflow: visible !important;
-      border-right: none;
-    }
-    & div {
-      border-right: 1px solid theme-color('text', 'sub-heading');
-      // padding-right: 3px;
-    }
-    column-gap: 12px;
-    font-size: 13px;
-    grid-template-columns: repeat(4, minmax(min-content, auto)) 0.8fr;
-    grid-template-rows: 1fr;
-    grid-template-areas: 
-      "from-address to-address subject date";
-  }
   .email-subject {
     & p {
       padding-top: 5px;
       font-size: 20px
     }
   }
-  
   .email-date {
     justify-self: end;
     font-size: 15px;
@@ -338,21 +349,29 @@
   }
 }
 @media only screen and (max-width: 800px) {
+  // resizing the gap of dividers between sort titles
   .email-header-container {
     column-gap: 1.5em;
   }
 }
 @media only screen and (max-width: 600px) {
+  // add some border radius to the search bar when it will wrap
+  #search-bar {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+  // resizing the gap of dividers between sort titles
   .email-header-container {
     column-gap: 1em;
   }
 }
 @media only screen and (max-width: 450px) {
-  .email-header-container {
-    column-gap: 8px;
-  }
+  // adjust dimensions of input fields
   #calender-bar {
     flex: 0 0 250px;
+  }
+  #calender-picker {
+    width: 20px;
   }
   #search-bar {
     flex: 0 0 180px;
@@ -360,11 +379,16 @@
   .show {
     max-width: 180px;
   }
+  // resizing the gap of dividers between sort titles
+  .email-header-container {
+    column-gap: 8px;
+  }
 }
 @media only screen and (max-width: 380px) {
   #mail-archiver-container {
     padding: 20px 0;
   }
+  // adjust dimensions of input fields
   #header-bar {
     padding: 0 20px;
     & > button {
@@ -372,8 +396,10 @@
     }
   }
   #calender-bar {
-    flex: 0 0 200px !important;
-    font-size: 13px !important;
+    flex: 0 0 200px;
+    & input {
+      font-size: 13px;
+    }
   }
   #search-bar {
     flex: 0 0 150px;

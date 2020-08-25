@@ -25,23 +25,25 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatListModule} from '@angular/material/list';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatCardModule} from '@angular/material/card';
-import {MatStepperModule} from '@angular/material/stepper';
-import {MatTabsModule} from '@angular/material/tabs';
+//import {MatStepperModule} from '@angular/material/stepper';
+//import {MatTabsModule} from '@angular/material/tabs';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatIconModule} from '@angular/material/icon';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatTooltipModule} from '@angular/material/tooltip';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {MatTableModule} from '@angular/material/table';
-import {MatSortModule} from '@angular/material/sort';
-import {MatPaginatorModule} from '@angular/material/paginator';
+//import {MatDialogModule} from '@angular/material/dialog';
+//import {MatTooltipModule} from '@angular/material/tooltip';
+//import {MatSnackBarModule} from '@angular/material/snack-bar';
+//import {MatTableModule} from '@angular/material/table';
+//import {MatSortModule} from '@angular/material/sort';
+//import { MatPaginatorModule } from '@angular/material/paginator';
+import {MAT_DATE_LOCALE} from '@angular/material/core';
+
 import { CustomDatePipe } from './pipes/custom-date.pipe';
 
-import {MAT_DATE_LOCALE} from '@angular/material/core';
+
 
 @NgModule({
   declarations: [
@@ -69,20 +71,12 @@ import {MAT_DATE_LOCALE} from '@angular/material/core';
     MatListModule,
     MatGridListModule,
     MatCardModule,
-    MatStepperModule,
-    MatTabsModule,
     MatExpansionModule,
     MatButtonToggleModule,
     MatChipsModule,
     MatIconModule,
     MatProgressSpinnerModule,
     MatProgressBarModule,
-    MatDialogModule,
-    MatTooltipModule,
-    MatSnackBarModule,
-    MatTableModule,
-    MatSortModule,
-    MatPaginatorModule,
     ReactiveFormsModule,
   ],
   providers: [

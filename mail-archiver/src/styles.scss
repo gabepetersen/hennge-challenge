@@ -38,27 +38,18 @@ $mail-archiver-theme: mat-light-theme((
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-/* Edits to Existing Angular Material Styles */
+/* ------------------------------------- */
+/* ---- Override of Angular Styling -----*/
+/* ------------------------------------- */
+/* Note: Looking back, doing all these overrides with !important was probably a bad idea. 
+   It was nice to use some of the functionality of Angular Material, but if I were to redo this project,
+   I would probably create way more customizable material components designed specifically for the project.  */
 ::ng-deep { 
-  .mat-form-field-infix {
-    border-top: 0;
-    padding: 0.4em 0;
-  }
-  .mat-form-field-flex {
-    padding: 3px !important;
-  }
-  .mat-form-field-wrapper {
-    padding: 0;
-  }
+  // Input Styling Override
   .mat-icon-button {
     line-height: 0 !important;
   }
-  .mat-body p, .mat-body-1 p, .mat-typography p {
-    margin: 0;
-  }
   .mat-date-range-input-container {
-    padding-top: 0.25em !important;
-    padding-left: 15px !important;
     color: theme-color('text','default') !important;
   }
   .mat-button, .mat-icon-button, .mat-stroked-button, .mat-flat-button {
@@ -68,14 +59,27 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   }
   .mat-form-field-type-mat-date-range-input .mat-form-field-infix {
     width: 100% !important;
+  }  
+  .mat-form-field-infix {
+    border-top: 0;
+    padding-left: 8px;
+  }
+  .mat-form-field-wrapper {
+    height: 100%;
   }
   .mat-form-field-flex {
     align-items: center !important;
+    height: 100%;
+  }
+  // Body Style Override
+  .mat-body p, .mat-body-1 p, .mat-typography p {
+    margin: 0;
   }
   .mat-list-base .mat-list-item, .mat-list-base .mat-list-option, .mat-list-item-content {
     height: auto !important;
     min-height: 50px;
   }
+  // Mat Expansion Override
   .mat-expansion-panel-header  {
     min-height: 50px !important;
     padding: 0 !important;
@@ -91,14 +95,18 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     background-color: transparent !important;
   }
   @media only screen and (max-width: 1000px) {
+    .mat-date-range-input-container {
+      line-height: 1 !important;
+    }
     .mat-expansion-panel-header  {
       min-height: 120px !important;
     }
   }
 }
-
-// creates a central color scheme for the app
-$web-colors: (
+/* ------------------------------------- */
+/* -- Central color scheme for the app --*/
+/* ------------------------------------- */
+$app-colors: (
   'text': (
     'default': #333333,
     'sub-heading': #666666,
@@ -118,6 +126,6 @@ $web-colors: (
   )
 );
 @function theme-color($key: 'text', $variant: 'default') {
-  $map: map-get($web-colors, $key);
-  @return map-get($map, $variant);
+  $type: map-get($app-colors, $key);
+  @return map-get($type, $variant);
 }
