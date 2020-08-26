@@ -112,20 +112,19 @@ export class AppComponent {
       // if descending => change to ascending
       if (this.sortToggleCheck[this.sortKey] === 1) {
         this.sortToggleCheck[this.sortKey] = 2;
+        // spread operator to create a copy of filteredData
         sortedFilteredData = [...this.filteredData].sort(this.compareValues(this.sortKey, 'asc'));
         this.sortOrder = 'asc';
       // if ascending => change to no sorting
       } else {
         // one for descending
         this.sortToggleCheck[this.sortKey] = 1;
-        // spread operator to create a copy of dataSource
         sortedFilteredData = [...this.filteredData].sort(this.compareValues(this.sortKey, 'desc'));
         this.sortOrder = 'desc';
       }
     } else {
       // one for descending
       this.sortToggleCheck[this.sortKey] = 1;
-      // spread operator to create a copy of dataSource
       sortedFilteredData = [...this.filteredData].sort(this.compareValues(this.sortKey, 'desc'));
       this.sortOrder = 'desc';
     }

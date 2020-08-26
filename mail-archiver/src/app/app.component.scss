@@ -285,10 +285,10 @@
     }
     column-gap: 12px;
     font-size: 13px;
-    grid-template-columns: repeat(4, minmax(min-content, auto)) 0.8fr;
-    grid-template-rows: 1fr;
+    grid-template-columns: repeat(4, minmax(min-content, auto)) 0.8fr !important;
+    grid-template-rows: 1fr !important;
     grid-template-areas: 
-      "from-address to-address subject date";
+      "from-address to-address subject date" !important;
   }
   // for email container - adopt new grid areas
   .email-container {

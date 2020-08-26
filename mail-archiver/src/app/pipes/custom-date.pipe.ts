@@ -13,8 +13,11 @@ export class CustomDatePipe implements PipeTransform {
     return this.changeDate(value);
   }
   changeDate(date) {
-    // CURRENT DATE SETTING FOR TESTING
+    // ----------------------------------------
+    // --- CURRENT DATE SETTING FOR TESTING ---
+    // ----------------------------------------
     var currentDate = new Date("January 3 2020");
+    
     var emailDate = new Date(date);
     if (currentDate.getFullYear() > emailDate.getFullYear()) {
       // if the email was from previous years
