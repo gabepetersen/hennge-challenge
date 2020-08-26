@@ -1,34 +1,32 @@
 # Improvements
 
-this documents describes some of the potential improvements, in my opinion, that can be made in both design and functionality.
+This document describes some of the potential improvements, in my opinion, that can be made in both design and functionality.
 
 ### Design
 
-- Seperating the Date and Search Fields
-    Although the functionality of having the search bar slide from the calendar, some new users might experience slight confusion when using the app at first. With this sliding search functionality, it makes the user have to click extra in order to get the filter configuration that they want. While this design provides an excellent design to make the user feel more in control of the visual interface, quick usabilitiy is the tradeoff here. This also simplifies the maintainability of the component.
+- *Separating the Date and Search Fields*
 
-- Header Bar Sizing on Mobile
-    If we expect the user to use this component's filtering methods a lot, it could be good to resize the calender/text filter combination to cover the full width of the screen in a mobile view. In this layout, the user would have better access to the input fields on screen.
+    Although the functionality of having a hidden search bar does improve the design, some new users might experience slight confusion when using the app at first. With this sliding search functionality, it makes the user have to click extra to get the filter configuration that they want. While this design provides excellent ways to make the user feel more in control of the visual interface, quick usability is the tradeoff here. By separating the form fields, it can also simplify the maintainability of the component.
 
-- Different Themes
-    I think a dark mode could look pretty cool with this design.
+- *Header Bar Sizing on Mobile*
 
-- Link Color
-    This is a totally personal opinion, but I think the link hover color stands out too much on the b&w design. 
+    If we expect the user to use the filtering methods, either by date range or text, it could be good to resize the calendar/text filter bar to cover the full width of the screen in a mobile view. In this layout, the user would have better access to the input fields on the screen, and it would give it that classic mobile design feel.
+
+- *Different Themes*
+
+    I think a dark mode could look pretty cool with this design. With this, the user has a nice added control to their visual environment.
+
+- *Link Color*
+
+    This is an opinion I'm not completely sure about, but I think the link hover color stands out too much on the b&w design. 
 
 ### Functionality
 
-- Seperate Email Component
-    Since the user will want to see the reply chain on emails, it might be good to add a seperate email component that the app can route to from the email. This might make the component a bit more organized when reading through long email chains. 
+- *Separate Email Component*
 
-- Paginator
-    Since the mail-archiver might need to display many emails, a paginator, giving the option of how many emails per page, could be a nice feature for the user to customize their own visual interface.
+    Since the user will want to see the replies on emails, it might be good to add a separate email component that the app can route to from the email list. This could make the component more organized when reading through long email chains. 
 
-### Some things I added to the existing design 
+- *Paginator*
 
-- Hidden Search Bar
-    I figured that a show/hide functionality on the search button was implied, so I made the whole filter bar a flex so that the search bar would appear underneath the calender on mobile view and to the side on desktop view. This is able to filter all fields of the emails, including the message.
-
-- Email Dropdown/Message Inspection
-    To display the functionality required by Mission 2, I added a feature so that on the email click, a dropdown would occur to display the email message. One feature that I would like to add in the future is highlighting the matching text on search.
+    Since the mail-archiver might need to display many emails, giving the option of how many emails are displayed per page could be another nice feature for the user to customize their visual interface.
 
