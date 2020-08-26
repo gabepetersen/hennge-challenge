@@ -4,9 +4,9 @@ My application to Hennge's front-end software engineer position
 
 
 
-You can read about potential improvements to the project [here](docs/IMPROVEMENTS.md).
+**You can read about potential improvements to the project [here](docs/IMPROVEMENTS.md).**
 
-You can read about my development process report [here](docs/REPORT.md).
+**You can read about my development process report [here](docs/REPORT.md).**
 
 
 
@@ -20,7 +20,7 @@ You can read about my development process report [here](docs/REPORT.md).
 
 3. `ng serve`
 
-4. Navigate in your browser to localhost:4200
+4. Navigate in your web browser to localhost:4200
 
 
 
