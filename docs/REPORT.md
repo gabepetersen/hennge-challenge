@@ -8,7 +8,7 @@ This document is an explanation of the mail archiver creation process. There are
     
     I decided to use Angular since I have been using it recently and I am familiar with the Angular Material library.
 
-    > I'll have to admit one of my mistakes: I thought I saw Angular on your guys' tech stack for some reason. 
+    > I'll have to admit a mistake: I thought I saw Angular on your guys' tech stack for some reason. 
     > I realize now that React with a library like Ant Design might have been another good setup for this project.
 
 2. **Sorting out Themes**
